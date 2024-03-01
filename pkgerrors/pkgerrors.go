@@ -216,6 +216,9 @@ func verb(msg string) string {
 
 // unquote assumes quoted s.
 func unquote(s string) string {
+	if len(s) < 2 {
+		return s
+	}
 	if s[0] == '"' && s[len(s)-1] == '"' {
 		s = s[1 : len(s)-1] // skip first and last rune
 	}
